@@ -1,0 +1,30 @@
+name: End to End GitHub Action template
+# Run on pull requests on a target branch E.g. develop
+on:
+  pull_request:
+    branches: [develop]
+
+jobs:
+  e2e:
+    # If you are running a service with Preview URLs like Vercel, this is the event to listen to.
+    if: github.event.deployment_status.state == 'success'
+    name: End to End
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Update accordingly.
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      # The magic.
+      - uses: microsoft/playwright-github-action@74fbf9d1a7c5d8735dab59804da3fdd367a98020
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Run Playwright tests
+        run: cd e2e && npm install && npm run test
+        env:
+          # Some services provide environment variables like the one below.
+          DEPLOY_URL: ${{ github.event.deployment_status.target_url }}
+          # Extra environment variables you want to set.
+          ENVIRONMENT_VARIABLE_X: "Some env variable"
