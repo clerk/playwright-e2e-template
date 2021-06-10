@@ -11,6 +11,5 @@
  */
 
 export const config = {
-  ACCOUNTS_DOMAIN_HOST:
-    process.env.ACCOUNTS_DOMAIN_HOST || "https://test-accounts-domain.dev",
+  HOST: process.env.HOST || "https://test-accounts-domain.dev",
 };

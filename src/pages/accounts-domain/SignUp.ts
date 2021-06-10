@@ -16,7 +16,7 @@ export class SignUp {
   private signUpButton = ".cl-sign-up-button";
 
   /** properties */
-  url = config.ACCOUNTS_DOMAIN_HOST + "/sign-up";
+  url = config.HOST + "/sign-up";
 
   constructor(page: Page) {
     this.page = page;

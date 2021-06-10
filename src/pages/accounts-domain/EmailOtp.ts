@@ -9,7 +9,7 @@ export class EmailOtp {
   private otpContainer = "otp-container";
 
   /** properties */
-  url = config.ACCOUNTS_DOMAIN_HOST + "/sign-up/verify-email-address";
+  url = config.HOST + "/sign-up/verify-email-address";
 
   constructor(page: Page) {
     this.page = page;
