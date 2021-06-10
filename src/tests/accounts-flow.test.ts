@@ -14,8 +14,6 @@ describe("Sign up example flow", () => {
   });
 
   it("sign up", async () => {
-    const SIGNUP_SUCCESS_URL = "test-accounts-success";
-
     /**
      * Create a test identifier to provide some tracing capabilities on side-effects like data input.
      */
@@ -40,6 +38,6 @@ describe("Sign up example flow", () => {
     /**
      * Validate the expected result.
      */
-    expect(page.url()).toMatch(SIGNUP_SUCCESS_URL);
+    expect(page.url()).toMatch(emailOtp.url);
   });
 });
