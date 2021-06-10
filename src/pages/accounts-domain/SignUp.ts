@@ -13,7 +13,7 @@ export class SignUp {
   private passwordInput = "#password";
   private emailInput = "#emailAddress";
   private phoneInput = "#phoneNumber";
-  private signUpButton = "#signup";
+  private signUpButton = ".cl-sign-up-button";
 
   /** properties */
   url = config.ACCOUNTS_DOMAIN_HOST + "/sign-up";
